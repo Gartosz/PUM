@@ -1,0 +1,33 @@
+<resources>
+    <string name="app_name">Lista1</string>
+    <string name="answer_yes">Tak</string>
+    <string name="answer_no">Nie</string>
+    <string name="cheat">Oszukuj</string>
+    <string name="cheat_text">Czy na pewno chcesz oszukać w tym pytaniu?</string>
+    <string name="internet_search">Wyszukaj w internecie</string>
+    <string name="next">Następne pytanie</string>
+    <string-array name="questions">
+        <item>"Czy sublimacja to proces przemiany gazu w ciało stałe?"</item>
+        <item>"Czy sublimacja to proces przemiany gazu w ciało stałe?1"</item>
+        <item>"Czy sublimacja to proces przemiany gazu w ciało stałe?2"</item>
+        <item>"Czy sublimacja to proces przemiany gazu w ciało stałe?3"</item>
+        <item>"Czy sublimacja to proces przemiany gazu w ciało stałe?4"</item>
+        <item>"Czy sublimacja to proces przemiany gazu w ciało stałe?5"</item>
+        <item>"Czy sublimacja to proces przemiany gazu w ciało stałe?6"</item>
+        <item>"Czy sublimacja to proces przemiany gazu w ciało stałe?7"</item>
+        <item>"Czy sublimacja to proces przemiany gazu w ciało stałe?8"</item>
+        <item>"Czy sublimacja to proces przemiany gazu w ciało stałe?9"</item>
+    </string-array>
+    <string-array name="answers">
+        <item>Tak</item>
+        <item>Tak</item>
+        <item>Tak</item>
+        <item>Tak</item>
+        <item>Tak</item>
+        <item>Tak</item>
+        <item>Tak</item>
+        <item>Tak</item>
+        <item>Tak</item>
+        <item>Tak</item>
+    </string-array>
+</resources>
