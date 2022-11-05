@@ -1,6 +1,10 @@
 package com.example.lista1
 
+import android.annotation.SuppressLint
 import android.app.Activity
+import android.app.SearchManager
+import android.content.Intent
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -16,6 +20,7 @@ class CheatActivity : AppCompatActivity() {
     private val buttonYes: Button by lazy {findViewById(R.id.button_yes_cheat)}
     private val buttonNo: Button by lazy {findViewById(R.id.button_no_cheat)}
     private val buttonBack: Button by lazy {findViewById(R.id.button_back)}
+    private val buttonSearch: Button by lazy {findViewById(R.id.button_internet_search)}
     private val questions by lazy {resources.getStringArray(R.array.questions)}
     private val answers by lazy {resources.getStringArray(R.array.answers)}
 
@@ -39,6 +44,18 @@ class CheatActivity : AppCompatActivity() {
             setResult(Activity.RESULT_OK)
             finish()
         }
+
+        buttonSearch.setOnClickListener {
+            webSeach()
+        }
+    }
+
+    private fun webSeach() {
+        val query = questions[index]
+        val intent = Intent(Intent.ACTION_WEB_SEARCH).apply {
+            putExtra(SearchManager.QUERY, query)
+        }
+        startActivity(intent)
     }
 
     private fun changeButtonsVisibility()
@@ -46,6 +63,7 @@ class CheatActivity : AppCompatActivity() {
         buttonYes.visibility = View.INVISIBLE
         buttonNo.visibility = View.INVISIBLE
         buttonBack.visibility = View.VISIBLE
+        buttonSearch.visibility = View.VISIBLE
     }
 
     private fun revealAnswer()
