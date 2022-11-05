@@ -11,7 +11,6 @@ import android.widget.TextView
 class CheatActivity : AppCompatActivity() {
 
     private var index: Int = 0
-    private var points: Int = 0
     private val question: TextView by lazy {findViewById(R.id.question_cheat)}
     private val answer: TextView by lazy {findViewById(R.id.show_answer)}
     private val buttonYes: Button by lazy {findViewById(R.id.button_yes_cheat)}
@@ -37,16 +36,9 @@ class CheatActivity : AppCompatActivity() {
         }
 
         buttonBack.setOnClickListener {
-            subtractPoints()
             setResult(Activity.RESULT_OK)
             finish()
         }
-    }
-
-    private fun subtractPoints()
-    {
-
-
     }
 
     private fun changeButtonsVisibility()
@@ -58,7 +50,7 @@ class CheatActivity : AppCompatActivity() {
 
     private fun revealAnswer()
     {
-        answer.text = "Prawidłowa odpowiedź: " + answers[index]
+        answer.text = "Prawidłowa odpowiedź to: " + answers[index]
     }
 
     private fun setValues()
@@ -67,7 +59,6 @@ class CheatActivity : AppCompatActivity() {
         val data = i.getBundleExtra("values")
         if (data != null) {
             index = data.getInt("index")
-            points = data.getInt("points")
         }
     }
 

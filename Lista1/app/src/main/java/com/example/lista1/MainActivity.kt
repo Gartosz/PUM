@@ -12,6 +12,8 @@ import androidx.appcompat.app.AppCompatActivity
 import kotlin.reflect.KClass
 
 
+private const val i = 10
+
 class MainActivity : AppCompatActivity() {
 
     private val buttonYes: Button by lazy {findViewById(R.id.button_yes)}
@@ -22,11 +24,12 @@ class MainActivity : AppCompatActivity() {
     private val answers by lazy {resources.getStringArray(R.array.answers)}
     private var index: Int = 0
     private var points: Int = 0
+    private val correctAnswerPoint = 10
+    private val cheatPoints = 15
     private var resultLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
         if (result.resultCode == Activity.RESULT_OK) {
-
-            val data: Intent? = result.data
-
+            points -= cheatPoints
+            nextQuestion()
         }
     }
 
@@ -50,39 +53,42 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun changeActivity() {
-        Log.d("C", "D")
-
         val changeActivityIntent = Intent(this, CheatActivity::class.java)
 
         val bundle: Bundle = Bundle()
 
         bundle.putInt("index", index)
-        bundle.putInt("points", points)
 
         changeActivityIntent.putExtra("values", bundle)
 
         resultLauncher.launch(changeActivityIntent)
     }
 
+
+
     private fun buttonAction(answer: String) {
         if (index >= 0) {
             if (answers[index] == answer)
-                points += 10
-            ++index
+                points += correctAnswerPoint
             nextQuestion()
         }
     }
 
     private fun nextQuestion()
     {
+        ++index
         if (index == questions.size)
-        {
-            question.setText("Udało ci sie zdobyć " + points + " punktów!")
-            makeButtonsInvisible()
-            index = -1
-            return
-        }
-        question.setText(questions[index])
+            quizFinished()
+
+        else
+            question.setText(questions[index])
+    }
+
+    private fun quizFinished() {
+        question.setText("Udało ci sie zdobyć " + points + " punktów!")
+        makeButtonsInvisible()
+        index = -1
+        return
     }
 
     private fun makeButtonsInvisible() {
