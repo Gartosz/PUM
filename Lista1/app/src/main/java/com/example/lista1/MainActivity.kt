@@ -23,12 +23,13 @@ class MainActivity : AppCompatActivity() {
     private val questions by lazy {resources.getStringArray(R.array.questions)}
     private val answers by lazy {resources.getStringArray(R.array.answers)}
     private var index: Int = 0
-    private var points: Int = 0
-    private val correctAnswerPoint = 10
+    private var correctAnswerCount = 0
+    private var cheatedAnswerCount = 0
+    private val correctPoints = 10
     private val cheatPoints = 15
     private var resultLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
         if (result.resultCode == Activity.RESULT_OK) {
-            points -= cheatPoints
+            ++cheatedAnswerCount
             nextQuestion()
         }
     }
@@ -40,7 +41,8 @@ class MainActivity : AppCompatActivity() {
 
         if (savedInstanceState != null) {
             index = savedInstanceState.getInt("index")
-            points = savedInstanceState.getInt("points")
+            correctAnswerCount = savedInstanceState.getInt("correctAnswerCount")
+            cheatedAnswerCount = savedInstanceState.getInt("cheatedAnswerCount")
         }
 
         question.setText(questions[index])
@@ -61,8 +63,8 @@ class MainActivity : AppCompatActivity() {
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
         outState.putInt("index", index)
-        outState.putInt("points", points)
-
+        outState.putInt("cheatedAnswerCount", cheatedAnswerCount)
+        outState.putInt("correctAnswerCount", correctAnswerCount)
     }
 
     private fun changeActivity() {
@@ -76,13 +78,11 @@ class MainActivity : AppCompatActivity() {
 
         resultLauncher.launch(changeActivityIntent)
     }
-
-
-
+    
     private fun buttonAction(answer: String) {
         if (index >= 0) {
             if (answers[index] == answer)
-                points += correctAnswerPoint
+                ++correctAnswerCount
             nextQuestion()
         }
     }
@@ -98,7 +98,9 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun quizFinished() {
-        question.setText("Udało ci sie zdobyć " + points + " punktów!")
+        var points = correctAnswerCount * correctPoints
+        points += cheatPoints * cheatedAnswerCount
+        question.text = "Udało ci sie zdobyć " + points + " punktów!"
         makeButtonsInvisible()
         index = -1
         return
@@ -108,11 +110,6 @@ class MainActivity : AppCompatActivity() {
         buttonNo.visibility = View.INVISIBLE
         buttonYes.visibility = View.INVISIBLE
         buttonCheat.visibility = View.INVISIBLE
-    }
-
-    fun getData(): Pair<Int, Int>
-    {
-        return Pair(index, points)
     }
 
 }
