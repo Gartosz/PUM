@@ -27,7 +27,11 @@ class CheatActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_cheat)
-        setValues()
+        if (savedInstanceState != null)
+            index = savedInstanceState.getInt("index")
+        else
+            setValues()
+        
         question.text = questions[index]
 
         buttonNo.setOnClickListener {
@@ -48,6 +52,11 @@ class CheatActivity : AppCompatActivity() {
         buttonSearch.setOnClickListener {
             webSeach()
         }
+    }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        outState.putInt("index", index)
     }
 
     private fun webSeach() {
