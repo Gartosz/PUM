@@ -37,7 +37,13 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        question.setText(questions[0])
+
+        if (savedInstanceState != null) {
+            index = savedInstanceState.getInt("index")
+            points = savedInstanceState.getInt("points")
+        }
+
+        question.setText(questions[index])
 
         buttonYes.setOnClickListener {
             buttonAction("Tak")
@@ -50,6 +56,13 @@ class MainActivity : AppCompatActivity() {
         buttonCheat.setOnClickListener {
             changeActivity()
         }
+    }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        outState.putInt("index", index)
+        outState.putInt("points", points)
+
     }
 
     private fun changeActivity() {
