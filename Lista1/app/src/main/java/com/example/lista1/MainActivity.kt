@@ -99,8 +99,9 @@ class MainActivity : AppCompatActivity() {
 
     private fun quizFinished() {
         var points = correctAnswerCount * correctPoints
-        points += cheatPoints * cheatedAnswerCount
-        question.text = "Udało ci sie zdobyć " + points + " punktów!"
+        points -= cheatPoints * cheatedAnswerCount
+        question.text = "Udało ci sie zdobyć $points punktów!\nLiczba poprawnych odpowiedzi: " +
+                        "$correctAnswerCount\nLiczba oszukanych odpowiedzi:  $cheatedAnswerCount"
         makeButtonsInvisible()
         index = -1
         return

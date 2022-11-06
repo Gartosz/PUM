@@ -8,24 +8,24 @@
     <string name="next">Następne pytanie</string>
     <string-array name="questions">
         <item>"Czy sublimacja to proces przemiany gazu w ciało stałe?"</item>
-        <item>"Czy sublimacja to proces przemiany gazu w ciało stałe?1"</item>
-        <item>"Czy sublimacja to proces przemiany gazu w ciało stałe?2"</item>
-        <item>"Czy sublimacja to proces przemiany gazu w ciało stałe?3"</item>
-        <item>"Czy sublimacja to proces przemiany gazu w ciało stałe?4"</item>
-        <item>"Czy sublimacja to proces przemiany gazu w ciało stałe?5"</item>
-        <item>"Czy sublimacja to proces przemiany gazu w ciało stałe?6"</item>
-        <item>"Czy sublimacja to proces przemiany gazu w ciało stałe?7"</item>
-        <item>"Czy sublimacja to proces przemiany gazu w ciało stałe?8"</item>
-        <item>"Czy sublimacja to proces przemiany gazu w ciało stałe?9"</item>
+        <item>"Ziemia jest 4., względem odległości, planetą od Słońca."</item>
+        <item>"Na cześć Mikołaja Kopernika został nazwany jeden z pierwiastków."</item>
+        <item>"Czy w stanie nadkrytycznym substancji zanika różnica gęstości między fazą ciekłą a gazową?"</item>
+        <item>"Czy udało się kiedyś osiągnąć temperaturę zera bezwzględnego?"</item>
+        <item>"Wielki wybuch wydarzył się około 5 mld lat temu."</item>
+        <item>"Prędość światła w próżni zależy od jego długości fali."</item>
+        <item>"Czy astronauci mogą cierpieć na chorobę kosmiczną?"</item>
+        <item>"Udało się wytworzyć plazmę w wyniku reakcji termojądrowej (fuzji jąder atomów)."</item>
+        <item>"Przyciąganie ziemskie ma różne wartości w różnych lokalizacjach."</item>
     </string-array>
     <string-array name="answers">
         <item>Tak</item>
+        <item>Nie</item>
         <item>Tak</item>
         <item>Tak</item>
-        <item>Tak</item>
-        <item>Tak</item>
-        <item>Tak</item>
-        <item>Tak</item>
+        <item>Nie</item>
+        <item>Nie</item>
+        <item>Nie</item>
         <item>Tak</item>
         <item>Tak</item>
         <item>Tak</item>
