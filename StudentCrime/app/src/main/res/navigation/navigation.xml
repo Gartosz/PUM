@@ -13,9 +13,6 @@
         <action
             android:id="@+id/action_crimesList_to_specificCrime"
             app:destination="@id/specificCrime" />
-        <action
-            android:id="@+id/action_crimesList_to_specificCrime2"
-            app:destination="@id/specificCrime" />
     </fragment>
     <fragment
         android:id="@+id/specificCrime"
