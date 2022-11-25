@@ -4,6 +4,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 
 class ListAdapter(
@@ -25,8 +26,11 @@ class ListAdapter(
         val crime = crimesList[position]
         holder.crime.text = crime
         holder.itemView.setOnClickListener {
-            val element = holder.crime.text
-            
+            val action = CrimesListDirections
+                .actionCrimesListToSpecificCrime(
+
+                )
+            holder.itemView.findNavController().navigate(action)
         }
     }
 
