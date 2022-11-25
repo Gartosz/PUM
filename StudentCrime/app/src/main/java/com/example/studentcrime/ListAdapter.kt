@@ -16,7 +16,7 @@ class ListAdapter(
     ): ListViewHolder {
         return ListViewHolder(
             LayoutInflater.from(parent.context).inflate(
-            R.layout.crime_items_list,
+            R.layout.crime_item,
             parent,
             false))
     }
