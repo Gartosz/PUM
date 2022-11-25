@@ -12,11 +12,11 @@
         tools:layout="@layout/crime_items_list" >
         <action
             android:id="@+id/action_crimesList_to_specificCrime"
-            app:destination="@id/specificCrime" />
+            app:destination="@id/detailedCrime" />
     </fragment>
     <fragment
-        android:id="@+id/specificCrime"
-        android:name="com.example.studentcrime.SpecificCrime"
+        android:id="@+id/detailedCrime"
+        android:name="com.example.studentcrime.DetailedCrime"
         android:label="specific_crime_item"
         tools:layout="@layout/specific_crime_item" >
         <action
