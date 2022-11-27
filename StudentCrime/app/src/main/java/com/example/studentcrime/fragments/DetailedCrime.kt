@@ -30,6 +30,19 @@ class DetailedCrime : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        view.findViewById<TextView>(R.id.specificCrime).text = CrimesData.getDetailedCrime(index)["Title"].toString()
+        try {
+            val detailedCrime = CrimesData.getDetailedCrime(index)
+            view.findViewById<TextView>(R.id.specificCrimeTitle).text = detailedCrime["Title"].toString()
+            view.findViewById<TextView>(R.id.specificCrimeDate).text = detailedCrime["Datetime"].toString()
+            view.findViewById<TextView>(R.id.specificCrimeDescription).text = detailedCrime["Description"].toString()
+            view.findViewById<TextView>(R.id.specificCrimeStudentID).text = detailedCrime["Student Index"].toString()
+            if (detailedCrime["Status"] == true)
+                view.findViewById<TextView>(R.id.specificCrimeStatus).visibility = View.VISIBLE
+        }
+        catch (e: Exception){
+            println(e)
+        }
+
+
     }
 }
