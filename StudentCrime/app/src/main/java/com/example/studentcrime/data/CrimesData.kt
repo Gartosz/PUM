@@ -1,14 +1,15 @@
 package com.example.studentcrime.data
 
 import java.time.LocalDateTime
+import java.time.format.DateTimeFormatter
 
 object CrimesData {
-    private val title = listOf("Kradzież")
-    private val description = listOf("Student ukradł układ ArduinoNano.")
-    private val create_datetime = listOf<LocalDateTime>(LocalDateTime.parse("2022-10-16 14:38"))
-    private val student_index = listOf<Int>(536)
-    private val solved_status = listOf<Boolean>(false)
-    val crime_count = title.size
+    private val title = listOf("Kradzież", "Plagiat")
+    private val description = listOf("Student ukradł układ ArduinoNano.", "Pracę zaliczeniową skopiował w większości o kolegi " +
+            "i twierdził, że to on jest autorem.")
+    private val createDatetime:List<LocalDateTime> = createDatesList()
+    private val studentIndex = listOf("536", "089")
+    private val solvedStatus = listOf(true, false)
 
     fun getCrime(index: Int): Map<String, Any> {
         return mapOf<String, Any>(
