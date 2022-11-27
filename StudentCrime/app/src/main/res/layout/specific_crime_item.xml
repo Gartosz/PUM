@@ -7,7 +7,7 @@
     tools:context=".fragments.DetailedCrime">
 
     <TextView
-        android:id="@+id/specificCrime"
+        android:id="@+id/specificCrimeTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="100dp"
@@ -18,34 +18,34 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/specificCrimeDescription"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="61dp"
         android:layout_marginTop="52dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/specificCrime" />
+        app:layout_constraintTop_toBottomOf="@+id/specificCrimeTitle" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/specificCrimeDate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="61dp"
         android:layout_marginTop="36dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintTop_toBottomOf="@+id/specificCrimeDescription" />
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/specificCrimeStudentID"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="61dp"
         android:layout_marginTop="36dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+        app:layout_constraintTop_toBottomOf="@+id/specificCrimeDate" />
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/specificCrimeStatus"
         android:layout_width="50sp"
         android:layout_height="50sp"
         android:layout_marginTop="96dp"
@@ -55,7 +55,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView3" />
+        app:layout_constraintTop_toBottomOf="@+id/specificCrimeStudentID" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
