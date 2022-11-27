@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/crimesList"
-        android:name="com.example.studentcrime.CrimesList"
+        android:name="com.example.studentcrime.fragments.CrimesList"
         android:label="crime_items_list"
         tools:layout="@layout/crime_items_list" >
         <action
@@ -16,7 +16,7 @@
     </fragment>
     <fragment
         android:id="@+id/detailedCrime"
-        android:name="com.example.studentcrime.DetailedCrime"
+        android:name="com.example.studentcrime.fragments.DetailedCrime"
         android:label="specific_crime_item"
         tools:layout="@layout/specific_crime_item" >
         <action
