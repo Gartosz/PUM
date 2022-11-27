@@ -11,7 +11,16 @@ object CrimesData {
     private val studentIndex = listOf("536", "089")
     private val solvedStatus = listOf(true, false)
 
-    fun getCrime(index: Int): Map<String, Any> {
+    private fun createDatesList(): List<LocalDateTime> {
+        val formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm")
+        val datesList = listOf("2022-10-16 14:38", "2022-11-02 08:23")
+        val parsedDates = mutableListOf<LocalDateTime>()
+        for (date in datesList)
+            parsedDates.add(LocalDateTime.parse(date, formatter))
+        return parsedDates.toList()
+    }
+
+    fun getDetailedCrime(index: Int): Map<String, Any> {
         return mapOf<String, Any>(
             "Title" to title[index], "Description" to description[index],
             "Datetime" to create_datetime[index],"Student Index" to student_index[index],
