@@ -29,7 +29,9 @@ class ListAdapter(
         holder.crime.text = crime
         holder.itemView.setOnClickListener {
             val action = CrimesListDirections
-                .actionCrimesListToSpecificCrime()
+                .actionCrimesListToSpecificCrime(
+                    index = position
+                )
             holder.itemView.findNavController().navigate(action)
         }
     }

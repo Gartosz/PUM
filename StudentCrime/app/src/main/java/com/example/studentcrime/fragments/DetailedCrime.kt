@@ -9,6 +9,14 @@ import com.example.studentcrime.R
 
 class DetailedCrime : Fragment() {
 
+    private var index by Delegates.notNull<Int>()
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        arguments?.let { index = it.getInt("index") }
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
