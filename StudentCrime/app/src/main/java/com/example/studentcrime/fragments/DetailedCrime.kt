@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import com.example.studentcrime.R
+import com.example.studentcrime.data.CrimesData
 import java.lang.IllegalArgumentException
 
 class DetailedCrime : Fragment() {
@@ -25,5 +26,10 @@ class DetailedCrime : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         return inflater.inflate(R.layout.specific_crime_item, container, false)
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        view.findViewById<TextView>(R.id.specificCrime).text = CrimesData.getDetailedCrime(index)["Title"].toString()
     }
 }
