@@ -23,8 +23,8 @@ object CrimesData {
     fun getDetailedCrime(index: Int): Map<String, Any> {
         return mapOf<String, Any>(
             "Title" to title[index], "Description" to description[index],
-            "Datetime" to create_datetime[index],"Student Index" to student_index[index],
-            "Status" to solved_status[index]
+            "Datetime" to createDatetime[index],"Student Index" to studentIndex[index],
+            "Status" to solvedStatus[index]
         )
     }
 
