@@ -1,4 +1,4 @@
-package com.example.studentcrime
+package com.example.studentcrime.Adapters
 
 import android.view.LayoutInflater
 import android.view.View
@@ -6,6 +6,8 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
+import com.example.studentcrime.CrimesListDirections
+import com.example.studentcrime.R
 
 class ListAdapter(
     private val crimesList: MutableList<String>
@@ -27,9 +29,7 @@ class ListAdapter(
         holder.crime.text = crime
         holder.itemView.setOnClickListener {
             val action = CrimesListDirections
-                .actionCrimesListToSpecificCrime(
-
-                )
+                .actionCrimesListToSpecificCrime()
             holder.itemView.findNavController().navigate(action)
         }
     }
