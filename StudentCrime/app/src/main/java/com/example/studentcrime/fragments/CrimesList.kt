@@ -1,4 +1,4 @@
-package com.example.studentcrime
+package com.example.studentcrime.fragments
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,7 +7,8 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.studentcrime.Adapters.ListAdapter
+import com.example.studentcrime.adapters.ListAdapter
+import com.example.studentcrime.R
 
 
 class CrimesList : Fragment() {

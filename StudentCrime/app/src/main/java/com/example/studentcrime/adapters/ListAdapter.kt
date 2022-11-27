@@ -1,4 +1,4 @@
-package com.example.studentcrime.Adapters
+package com.example.studentcrime.adapters
 
 import android.view.LayoutInflater
 import android.view.View
@@ -6,8 +6,8 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
-import com.example.studentcrime.CrimesListDirections
 import com.example.studentcrime.R
+import com.example.studentcrime.fragments.CrimesListDirections
 
 class ListAdapter(
     private val crimesList: MutableList<String>
