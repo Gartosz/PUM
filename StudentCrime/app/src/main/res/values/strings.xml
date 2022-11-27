@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">StudentCrime</string>
-    <string name="singleCrime">Crime</string>
+    <string name="single_crime">Crime</string>
+    <string name="single_crime_image">Checkmark</string>
 </resources>
