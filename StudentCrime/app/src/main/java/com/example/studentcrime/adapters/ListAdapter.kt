@@ -8,9 +8,10 @@ import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.studentcrime.R
 import com.example.studentcrime.fragments.CrimesListDirections
+import java.time.LocalDateTime
 
 class ListAdapter(
-    private val crimesList: MutableList<String>
+    private val crimes: Pair<List<LocalDateTime>, List<Boolean>>
 ) : RecyclerView.Adapter<ListAdapter.ListViewHolder>(){
 
     override fun onCreateViewHolder(
@@ -36,7 +37,7 @@ class ListAdapter(
         }
     }
 
-    override fun getItemCount() = crimesList.size
+    override fun getItemCount() = crimes.first.size
 
     class ListViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
         val crime: TextView = itemView.findViewById((R.id.singleCrime))

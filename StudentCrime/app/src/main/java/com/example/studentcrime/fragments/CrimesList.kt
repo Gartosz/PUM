@@ -9,10 +9,11 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.studentcrime.adapters.ListAdapter
 import com.example.studentcrime.R
+import com.example.studentcrime.data.CrimesData
 
 
 class CrimesList : Fragment() {
-    private var crimesList =  MutableList(50) { "Crime #$it" }
+    private var crimes =  CrimesData.getCrimes()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -26,6 +27,6 @@ class CrimesList : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         val recyclerView: RecyclerView = view.findViewById(R.id.recyclerView)
         recyclerView.layoutManager = LinearLayoutManager(context)
-        recyclerView.adapter = ListAdapter(crimesList)
+        recyclerView.adapter = ListAdapter(crimes)
         }
     }
