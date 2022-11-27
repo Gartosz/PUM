@@ -4,17 +4,20 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.fragment.app.Fragment
 import com.example.studentcrime.R
+import java.lang.IllegalArgumentException
 
 class DetailedCrime : Fragment() {
 
-    private var index by Delegates.notNull<Int>()
+    private val index by lazy {
+        arguments?.getInt("index")?:
+        throw IllegalArgumentException("index doesn't exist")
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-        arguments?.let { index = it.getInt("index") }
     }
 
     override fun onCreateView(
