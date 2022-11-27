@@ -27,4 +27,10 @@ object CrimesData {
             "Status" to solved_status[index]
         )
     }
+
+    fun getCrimes(): Pair<List<LocalDateTime>, List<Boolean>>
+    {
+        return Pair(createDatetime, solvedStatus)
+    }
+
 }
