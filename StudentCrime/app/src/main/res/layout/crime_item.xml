@@ -1,7 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
-    <TextView xmlns:android="http://schemas.android.com/apk/res/android"
-        android:id="@+id/singleCrime"
-        android:layout_width="match_parent"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:visibility="visible">
+
+    <TextView
+        android:id="@+id/singleCrimeTitle"
+        android:layout_width="200sp"
         android:layout_height="wrap_content"
-        android:textSize="24sp"
-        />
+        android:textSize="30sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/singleCrimeDate"
+        android:layout_width="match_parent"
+        android:layout_height="40sp"
+        android:textSize="20sp"
+        app:layout_constraintTop_toBottomOf="@+id/singleCrimeTitle"
+        tools:layout_editor_absoluteX="0dp" />
+
+    <ImageView
+        android:id="@+id/statusCheckmark"
+        android:layout_width="40sp"
+        android:layout_height="40sp"
+        android:layout_marginStart="140dp"
+        android:contentDescription="@string/single_crime_image"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/singleCrimeDate"
+        app:layout_constraintStart_toEndOf="@+id/singleCrimeTitle"
+        app:srcCompat="@drawable/checkmark" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
