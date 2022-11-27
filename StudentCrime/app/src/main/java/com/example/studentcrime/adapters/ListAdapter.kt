@@ -3,6 +3,7 @@ package com.example.studentcrime.adapters
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
@@ -26,8 +27,12 @@ class ListAdapter(
     }
 
     override fun onBindViewHolder(holder: ListViewHolder, position: Int) {
-        val crime = crimesList[position]
-        holder.crime.text = crime
+        val crimeDate = crimes.first[position]
+        val crimeStatus = crimes.second[position]
+        holder.crimeTitle.text = "Crime #$position"
+        holder.crimeDate.text = crimeDate.toString()
+        if (crimeStatus)
+            holder.crimeStatus.visibility = View.VISIBLE
         holder.itemView.setOnClickListener {
             val action = CrimesListDirections
                 .actionCrimesListToSpecificCrime(
@@ -40,7 +45,9 @@ class ListAdapter(
     override fun getItemCount() = crimes.first.size
 
     class ListViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
-        val crime: TextView = itemView.findViewById((R.id.singleCrime))
+        val crimeDate: TextView = itemView.findViewById(R.id.singleCrimeDate)
+        val crimeTitle: TextView = itemView.findViewById(R.id.singleCrimeTitle)
+        val crimeStatus: ImageView = itemView.findViewById(R.id.statusCheckmark)
     }
 
 }
