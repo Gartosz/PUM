@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import com.example.studentcrime.R
@@ -40,7 +41,7 @@ class DetailedCrime : Fragment() {
             view.findViewById<TextView>(R.id.specificCrimeStudentID).text = "Indeks studenta: " +
                     detailedCrime["Student Index"].toString()
             if (detailedCrime["Status"] == true)
-                view.findViewById<TextView>(R.id.specificCrimeStatus).visibility = View.VISIBLE
+                view.findViewById<ImageView>(R.id.specificCrimeStatus).visibility = View.VISIBLE
         }
         catch (e: Exception){
             println(e)
