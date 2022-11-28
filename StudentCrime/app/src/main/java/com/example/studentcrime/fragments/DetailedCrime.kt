@@ -33,9 +33,12 @@ class DetailedCrime : Fragment() {
         try {
             val detailedCrime = CrimesData.getDetailedCrime(index)
             view.findViewById<TextView>(R.id.specificCrimeTitle).text = detailedCrime["Title"].toString()
-            view.findViewById<TextView>(R.id.specificCrimeDate).text = detailedCrime["Datetime"].toString()
-            view.findViewById<TextView>(R.id.specificCrimeDescription).text = detailedCrime["Description"].toString()
-            view.findViewById<TextView>(R.id.specificCrimeStudentID).text = detailedCrime["Student Index"].toString()
+            view.findViewById<TextView>(R.id.specificCrimeDate).text = "Czas zgłoszenia: " +
+                    detailedCrime["Datetime"].toString()
+            view.findViewById<TextView>(R.id.specificCrimeDescription).text = "Opis " +
+                    detailedCrime["Description"].toString()
+            view.findViewById<TextView>(R.id.specificCrimeStudentID).text = "Indeks studenta: " +
+                    detailedCrime["Student Index"].toString()
             if (detailedCrime["Status"] == true)
                 view.findViewById<TextView>(R.id.specificCrimeStatus).visibility = View.VISIBLE
         }
