@@ -1,4 +1,7 @@
 package com.example.studenthardlife.fragments
 
-class ListView {
+import androidx.fragment.app.Fragment
+
+class ListView : Fragment(){
+
 }

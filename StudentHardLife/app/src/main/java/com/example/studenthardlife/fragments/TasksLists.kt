@@ -1,4 +1,6 @@
 package com.example.studenthardlife.fragments
 
-class TasksLists {
+import androidx.fragment.app.Fragment
+
+class TasksLists : Fragment() {
 }
