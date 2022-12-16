@@ -2,8 +2,9 @@ package com.example.studenthardlife
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.example.studenthardlife.data.TasksData
 import com.example.studenthardlife.databinding.ActivityMainBinding
-
+import com.google.gson.Gson
 
 class MainActivity : AppCompatActivity() {
     private val binding by lazy { ActivityMainBinding.inflate(layoutInflater) }
@@ -16,10 +17,11 @@ class MainActivity : AppCompatActivity() {
     override fun onPause() {
         super.onPause()
         val sharedPref = getSharedPreferences("fileName", MODE_PRIVATE)
-        val titles = mutableSetOf("A", "B")
+        val gson = Gson()
+        val json = gson.toJson(TasksData.getLists())
         val edit = sharedPref.edit()
         edit.apply {
-            putStringSet("titles", titles)
+            putString("Tasks", json)
             apply()
         }
     }
