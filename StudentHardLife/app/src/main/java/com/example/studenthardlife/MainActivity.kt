@@ -1,8 +1,9 @@
 package com.example.studenthardlife
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import com.example.studenthardlife.databinding.ActivityMainBinding
+
 
 class MainActivity : AppCompatActivity() {
     private val binding by lazy { ActivityMainBinding.inflate(layoutInflater) }
