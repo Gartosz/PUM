@@ -3,12 +3,9 @@ package com.example.studenthardlife
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.example.studenthardlife.data.TasksData
-import com.example.studenthardlife.databinding.ActivityMainBinding
 import com.google.gson.Gson
 
 class MainActivity : AppCompatActivity() {
-    private val binding by lazy { ActivityMainBinding.inflate(layoutInflater) }
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
