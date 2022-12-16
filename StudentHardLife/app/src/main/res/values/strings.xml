@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">StudentHardLife</string>
+    <string name="single_crime_image">Checkmark</string>
 </resources>
