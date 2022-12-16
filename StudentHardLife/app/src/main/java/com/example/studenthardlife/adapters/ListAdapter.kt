@@ -1,8 +1,10 @@
 package com.example.studenthardlife.adapters
 
 import android.view.LayoutInflater
+import android.view.TextureView
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.studenthardlife.R
@@ -26,7 +28,8 @@ class ListAdapter(
     }
 
     override fun onBindViewHolder(holder: ListViewHolder, position: Int) {
-
+        val listTitle = lists[position].title
+        holder.listTitle.text = listTitle
         holder.itemView.setOnClickListener {
             val action = TasksListsDirections
                 .actionTasksListsToListView(
@@ -39,6 +42,7 @@ class ListAdapter(
     override fun getItemCount() = lists.size
 
     class ListViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
-        }
+        val listTitle: TextView = itemView.findViewById(R.id.singleListTitle)
+    }
 
 }
