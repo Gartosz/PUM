@@ -1,7 +1,21 @@
 package com.example.studenthardlife.data
 
+import android.content.Context
+import android.content.SharedPreferences
+import androidx.appcompat.app.AppCompatActivity
+import com.google.gson.Gson
+import com.google.gson.reflect.TypeToken
+import java.lang.reflect.Type
+
 object TasksData {
     private lateinit var listsElements: MutableList<ListElement>
+    private lateinit var sharedPref: SharedPreferences
+
+    fun setupSharedPreferences(context: Context)
+    {
+        sharedPref = context.getSharedPreferences("fileName", AppCompatActivity.MODE_PRIVATE)
+        loadData()
+    }
 
     fun getLists(): List<ListElement>
     {
@@ -17,5 +31,28 @@ object TasksData {
     {
         val newList = ListElement(title)
         listsElements.add(newList)
+    }
+
+    fun saveData()
+    {
+        val gson = Gson()
+        val json = gson.toJson(getLists())
+        val edit = sharedPref.edit()
+        edit.apply {
+            putString("Tasks", json)
+            apply()
+        }
+    }
+
+    fun loadData()
+    {
+        val arrayItems: List<ListElement>
+        val serializedObject: String? = sharedPref.getString("Tasks", null)
+        if (serializedObject != null) {
+            val gson = Gson()
+            val type: Type = object : TypeToken<List<ListElement>>() {}.type
+            arrayItems = gson.fromJson(serializedObject, type)
+            importLists(arrayItems)
+        }
     }
 }
