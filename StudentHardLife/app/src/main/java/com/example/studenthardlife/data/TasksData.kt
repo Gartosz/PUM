@@ -31,6 +31,7 @@ object TasksData {
     {
         val newList = ListElement(title)
         listsElements.add(newList)
+        saveData()
     }
 
     fun saveData()
