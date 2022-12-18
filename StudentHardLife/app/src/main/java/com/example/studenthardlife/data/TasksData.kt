@@ -9,4 +9,9 @@ object TasksData {
     {
         return listsElements
     }
+
+    fun importLists(list: List<ListElement>)
+    {
+        listsElements = list
+    }
 }
