@@ -12,4 +12,10 @@ object TasksData {
     {
         listsElements = list.toMutableList()
     }
+
+    fun addList(title: String)
+    {
+        val newList = ListElement(title)
+        listsElements.add(newList)
+    }
 }
