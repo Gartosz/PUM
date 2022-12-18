@@ -11,6 +11,7 @@ import java.lang.reflect.Type
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        loadData()
         setContentView(R.layout.activity_main)
     }
 
