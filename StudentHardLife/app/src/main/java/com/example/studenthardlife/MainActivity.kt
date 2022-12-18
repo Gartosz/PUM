@@ -13,6 +13,10 @@ class MainActivity : AppCompatActivity() {
 
     override fun onPause() {
         super.onPause()
+        saveData()
+    }
+
+    private fun saveData() {
         val sharedPref = getSharedPreferences("fileName", MODE_PRIVATE)
         val gson = Gson()
         val json = gson.toJson(TasksData.getLists())
