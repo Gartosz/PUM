@@ -47,10 +47,15 @@ class TasksLists : Fragment() {
 
     private fun newListTitle() {
         val alertDialog = AlertDialog.Builder(context)
-
         val input = EditText(context)
         input.inputType = InputType.TYPE_CLASS_TEXT
+        setupAlert(alertDialog, input)
+    }
 
+    private fun setupAlert(
+        alertDialog: AlertDialog.Builder,
+        input: EditText
+    ) {
         alertDialog.apply {
             setTitle("Set Title")
             setView(input)
@@ -64,7 +69,6 @@ class TasksLists : Fragment() {
             setNegativeButton("Cancel") { dialog, _ ->
                 dialog.cancel()
             }
-
         }.create().show()
     }
 }
