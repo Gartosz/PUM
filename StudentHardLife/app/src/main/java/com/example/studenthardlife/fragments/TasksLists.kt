@@ -34,6 +34,10 @@ class TasksLists : Fragment() {
         val recyclerView: RecyclerView = view.findViewById(R.id.recyclerView)
         recyclerView.layoutManager = LinearLayoutManager(context)
         recyclerView.adapter = ListAdapter(lists)
+        addNewList(view)
+    }
+
+    private fun addNewList(view: View) {
         addListButton = view.findViewById(R.id.addButton)!!
         addListButton.setOnClickListener()
         {
