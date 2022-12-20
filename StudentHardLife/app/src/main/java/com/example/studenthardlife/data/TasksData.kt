@@ -22,11 +22,6 @@ object TasksData {
         return listsElements.toList()
     }
 
-    fun importLists(list: List<ListElement>)
-    {
-        listsElements = list.toMutableList()
-    }
-
     fun addList(title: String)
     {
         val newList = ListElement(title)
@@ -53,7 +48,7 @@ object TasksData {
             val gson = Gson()
             val type: Type = object : TypeToken<List<ListElement>>() {}.type
             arrayItems = gson.fromJson(serializedObject, type)
-            importLists(arrayItems)
+            listsElements = arrayItems.toMutableList()
         }
     }
 }
