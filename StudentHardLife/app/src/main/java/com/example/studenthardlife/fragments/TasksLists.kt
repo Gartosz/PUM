@@ -10,9 +10,12 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.studenthardlife.R
 import com.example.studenthardlife.adapters.ListAdapter
 import com.example.studenthardlife.data.TasksData
+import com.google.android.material.floatingactionbutton.FloatingActionButton
+
 
 class TasksLists : Fragment() {
     private var lists = TasksData.getLists()
+    private lateinit var addListButton: FloatingActionButton
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -26,5 +29,10 @@ class TasksLists : Fragment() {
         val recyclerView: RecyclerView = view.findViewById(R.id.recyclerView)
         recyclerView.layoutManager = LinearLayoutManager(context)
         recyclerView.adapter = ListAdapter(lists)
+        addListButton = view.findViewById(R.id.addButton)!!
+        addListButton.setOnClickListener()
+        {
+            
+        }
     }
 }
