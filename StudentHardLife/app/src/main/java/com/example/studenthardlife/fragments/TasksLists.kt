@@ -21,6 +21,8 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton
 class TasksLists : Fragment() {
     private var lists = TasksData.getLists()
     private lateinit var addListButton: FloatingActionButton
+    private lateinit var adapter: ListAdapter
+    private lateinit var recyclerView: RecyclerView
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -31,9 +33,10 @@ class TasksLists : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val recyclerView: RecyclerView = view.findViewById(R.id.recyclerView)
+        recyclerView = view.findViewById(R.id.recyclerView)
+        adapter = ListAdapter(lists)
         recyclerView.layoutManager = LinearLayoutManager(context)
-        recyclerView.adapter = ListAdapter(lists)
+        recyclerView.adapter = adapter
         addNewList(view)
     }
 
@@ -41,11 +44,11 @@ class TasksLists : Fragment() {
         addListButton = view.findViewById(R.id.addButton)!!
         addListButton.setOnClickListener()
         {
-            newListTitle()
+            setNewListTitle()
         }
     }
 
-    private fun newListTitle() {
+    private fun setNewListTitle() {
         val alertDialog = AlertDialog.Builder(context)
         val input = EditText(context)
         input.inputType = InputType.TYPE_CLASS_TEXT
@@ -62,7 +65,11 @@ class TasksLists : Fragment() {
             setPositiveButton("Create") { _: DialogInterface?, _: Int ->
                 val title = input.text.toString()
                 if (title != "")
+                {
                     TasksData.addList(input.text.toString())
+                    adapter.notifyDataSetChanged()
+                    recyclerView.refreshDrawableState()
+                }
                 else
                     Toast.makeText(context, "Title can't be empty!", Toast.LENGTH_SHORT).show()
             }
