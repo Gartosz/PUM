@@ -22,7 +22,7 @@
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="zadanie">
+                android:hint="Description">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/taskEditText"
@@ -43,7 +43,7 @@
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="kategoria">
+                android:hint="Task name">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/groupEditText"
@@ -58,7 +58,7 @@
             android:id="@+id/addButton"
             android:layout_width="wrap_content"
             android:layout_gravity="center"
-            android:text="dodaj"
+            android:text="Add"
             android:layout_margin="4dp"
             android:layout_height="wrap_content"/>
     </LinearLayout>
