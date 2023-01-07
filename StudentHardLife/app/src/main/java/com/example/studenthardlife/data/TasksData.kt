@@ -2,13 +2,14 @@ package com.example.studenthardlife.data
 
 import android.content.Context
 import android.content.SharedPreferences
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import java.lang.reflect.Type
 
 object TasksData {
-    private lateinit var listsElements: MutableList<ListElement>
+    private var listsElements = mutableListOf<ListElement>()
     private lateinit var sharedPref: SharedPreferences
 
     fun setupSharedPreferences(context: Context)
