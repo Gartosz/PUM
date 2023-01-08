@@ -11,32 +11,32 @@ import android.widget.EditText
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.example.studenthardlife.R
 import com.example.studenthardlife.adapters.ListAdapter
 import com.example.studenthardlife.data.TasksData
+import com.example.studenthardlife.databinding.TasksListBinding
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 
 class TasksLists : Fragment() {
     private var lists = TasksData.getLists()
     private lateinit var addListButton: FloatingActionButton
-    private lateinit var adapter: ListAdapter
-    private lateinit var recyclerView: RecyclerView
+    private lateinit var binding: TasksListBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.tasks_list, container, false)
+        binding = TasksListBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        recyclerView = view.findViewById(R.id.recyclerView)
-        adapter = ListAdapter(lists)
-        recyclerView.layoutManager = LinearLayoutManager(context)
-        recyclerView.adapter = adapter
+        binding.recyclerView.apply {
+            layoutManager = LinearLayoutManager(context)
+            adapter = ListAdapter(lists)
+        }
         addNewList(view)
     }
 
@@ -67,8 +67,8 @@ class TasksLists : Fragment() {
                 if (title != "")
                 {
                     TasksData.addList(input.text.toString())
-                    adapter.notifyDataSetChanged()
-                    recyclerView.refreshDrawableState()
+                    binding.recyclerView.adapter?.notifyDataSetChanged()
+                    binding.recyclerView.refreshDrawableState()
                 }
                 else
                     Toast.makeText(context, "Title can't be empty!", Toast.LENGTH_SHORT).show()
