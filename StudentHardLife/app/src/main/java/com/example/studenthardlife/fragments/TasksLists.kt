@@ -19,14 +19,14 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 
 class TasksLists : Fragment() {
-    private var lists = TasksData.getLists()
+    private var lists = TasksData.getTitles().toMutableList()
     private lateinit var addListButton: FloatingActionButton
     private lateinit var binding: TasksListBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = TasksListBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -67,9 +67,8 @@ class TasksLists : Fragment() {
                 if (title != "")
                 {
                     TasksData.addList(input.text.toString())
-                    lists = TasksData.getLists()
-                    binding.recyclerView.adapter?.notifyDataSetChanged()
-                    binding.recyclerView.refreshDrawableState()
+                    lists.add(input.text.toString())
+                    binding.recyclerView.adapter?.notifyItemInserted(lists.size - 1)
                 }
                 else
                     Toast.makeText(context, "Title can't be empty!", Toast.LENGTH_SHORT).show()
