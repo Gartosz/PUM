@@ -2,7 +2,6 @@ package com.example.studenthardlife.data
 
 import android.content.Context
 import android.content.SharedPreferences
-import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
@@ -21,6 +20,11 @@ object TasksData {
     fun getLists(): List<ListElement>
     {
         return listsElements.toList()
+    }
+
+    fun getTitles(): List<String>
+    {
+        return listsElements.map {it.title}
     }
 
     fun addList(title: String)
