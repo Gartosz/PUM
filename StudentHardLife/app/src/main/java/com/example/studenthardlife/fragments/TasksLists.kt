@@ -67,6 +67,7 @@ class TasksLists : Fragment() {
                 if (title != "")
                 {
                     TasksData.addList(input.text.toString())
+                    lists = TasksData.getLists()
                     binding.recyclerView.adapter?.notifyDataSetChanged()
                     binding.recyclerView.refreshDrawableState()
                 }
