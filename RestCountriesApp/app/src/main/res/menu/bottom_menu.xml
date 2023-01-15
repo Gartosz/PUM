@@ -3,8 +3,10 @@
 
     <item
         android:id="@+id/flags_menu"
-        android:title="Flags" />
+        android:icon="@drawable/flag_icon"
+        android:title="@string/flags" />
     <item
         android:id="@+id/capitals_menu"
-        android:title="Capitals" />
+        android:icon="@drawable/capital_icon"
+        android:title="@string/capitals" />
 </menu>
