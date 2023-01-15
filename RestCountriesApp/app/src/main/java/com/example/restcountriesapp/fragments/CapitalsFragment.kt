@@ -1,4 +1,6 @@
 package com.example.restcountriesapp.fragments
 
-class CapitalsFragment {
+import androidx.fragment.app.Fragment
+
+class CapitalsFragment : Fragment() {
 }

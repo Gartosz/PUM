@@ -1,4 +1,6 @@
 package com.example.restcountriesapp.fragments
 
-class FlagsFragment {
+import androidx.fragment.app.Fragment
+
+class FlagsFragment : Fragment() {
 }
