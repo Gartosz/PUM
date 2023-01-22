@@ -6,6 +6,9 @@ data class ModelData (private val apiLink: String) {
 
     fun getCapitals(): Any
     {
-        return countries.zip(capitals).toMap()
+        if (this::capitals.isInitialized && this::countries.isInitialized)
+            return countries.zip(capitals).toMap()
+        throw UninitializedPropertyAccessException("Capitals or countries list weren't " +
+                                                   "initialized from api.")
     }
 }
