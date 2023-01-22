@@ -2,4 +2,5 @@
     <string name="app_name">RestCountriesApp</string>
     <string name="capitals">Capitals</string>
     <string name="flags">Flags</string>
+    <string name="flag">flag</string>
 </resources>
