@@ -1,6 +1,6 @@
-package com.example.restcountriesapp.data
+package com.example.restcountriesapp.models
 
-data class ModelData (private val apiLink: String) {
+data class DataModel (private val apiLink: String) {
     private lateinit var countries: List<String>
     private lateinit var capitals: List<String>
 
