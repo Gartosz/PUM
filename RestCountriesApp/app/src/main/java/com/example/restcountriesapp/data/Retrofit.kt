@@ -3,14 +3,14 @@ package com.example.restcountriesapp.data
 import CountriesJSONData
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
-import retrofit2.Call
+import retrofit2.Response
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET
 import retrofit2.Retrofit
 
 interface CountriesApi {
     @GET(data.endpoint)
-    suspend fun getCountries(): Call<List<CountriesJSONData>>
+    suspend fun getCountries(): Response<ArrayList<CountriesJSONData>>
 }
 
 
