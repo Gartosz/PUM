@@ -14,7 +14,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/countryCapital"
+        android:id="@+id/countryElement"
         android:layout_width="200sp"
         android:layout_height="wrap_content"
         android:textSize="30sp"
