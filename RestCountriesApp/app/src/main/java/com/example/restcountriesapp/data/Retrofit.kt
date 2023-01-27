@@ -1,6 +1,8 @@
 package com.example.restcountriesapp.data
 
 import CountriesJSONData
+import okhttp3.OkHttpClient
+import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Call
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET
@@ -8,16 +10,23 @@ import retrofit2.Retrofit
 
 interface CountriesApi {
     @GET(data.endpoint)
-    fun getCountries(): Call<List<CountriesJSONData>>
+    suspend fun getCountries(): Call<List<CountriesJSONData>>
 }
 
 
-object Retrofit
+object RetrofitInstance
 {
-    private val retrofit = Retrofit.Builder()
-        .baseUrl(data.api_link)
-        .addConverterFactory(GsonConverterFactory.create())
-        .build()
-
-    val api = retrofit.create(CountriesApi::class.java)
+    val api: CountriesApi by lazy {
+        val logging = HttpLoggingInterceptor()
+        logging.setLevel(HttpLoggingInterceptor.Level.BODY)
+        val client = OkHttpClient.Builder()
+            .addInterceptor(logging)
+            .build()
+        Retrofit.Builder()
+            .baseUrl(data.api_link)
+            .addConverterFactory(GsonConverterFactory.create())
+            .client(client)
+            .build()
+            .create(CountriesApi::class.java)
+    }
 }
