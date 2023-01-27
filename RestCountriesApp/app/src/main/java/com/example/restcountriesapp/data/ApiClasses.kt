@@ -1,3 +1,5 @@
+class CountriesResponse : ArrayList<CountriesJSONData>()
+
 data class CountriesJSONData(
     val altSpellings: List<String>,
     val capital: List<String>,
