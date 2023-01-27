@@ -18,4 +18,6 @@ object Retrofit
         .baseUrl("https://jsonplaceholder.typicode.com/")
         .addConverterFactory(GsonConverterFactory.create())
         .build()
+
+    val api = retrofit.create(CountriesApi::class.java)
 }
