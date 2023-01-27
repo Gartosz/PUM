@@ -1,12 +1,12 @@
 package com.example.restcountriesapp.data
 
-data class CountryCapitalApi(
+data class CountryCapital(
     val altSpellings: List<String>,
     val capital: List<String>,
     val name: Name
 )
 
-data class CountryFlagApi(
+data class CountryFlag(
     val altSpellings: List<String>,
     val capital: List<String>,
     val flag: String,
