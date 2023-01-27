@@ -1,19 +1,32 @@
 package com.example.restcountriesapp.models
 
-import android.util.Log
+import CountriesResponse
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.example.restcountriesapp.data.RetrofitInstance
+import com.example.restcountriesapp.util.Resource
+import kotlinx.coroutines.launch
+import retrofit2.Response
 
 class ViewModel : ViewModel() {
-    private lateinit var countries: List<String>
-    private lateinit var capitals: List<String>
+    private lateinit var _countries: MutableLiveData<Resource<CountriesResponse>>
 
-    fun getCapitals(): Any
-    {
-        if (this::capitals.isInitialized && this::countries.isInitialized)
-            return countries.zip(capitals).toMap()
-        throw UninitializedPropertyAccessException("Capitals or countries list weren't " +
-                "initialized from api.")
+    val countries: LiveData<Resource<CountriesResponse>>
+        get() = _countries
+
+    fun getCountries() = viewModelScope.launch {
+        _countries.postValue(Resource.Loading())
+        val response = getFromApi()
+        _countries.postValue(handleCountriesResponse(response))
+    }
+
+    private fun handleCountriesResponse(response: Response<CountriesResponse>)
+            : Resource<CountriesResponse> {
+        if (response.isSuccessful)
+            response.body()?.let { return Resource.Success(it) }
+        return Resource.Error(response.message())
     }
     fun getFlags(): Any{
         return 0
