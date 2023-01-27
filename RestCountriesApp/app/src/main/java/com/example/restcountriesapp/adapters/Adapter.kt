@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
 import com.example.restcountriesapp.databinding.ItemBinding
 
-class Adapter(itemComparator: Comparator, fragmentName: String) : ListAdapter<CountriesJSONData, ViewHolder>(itemComparator) {
+class Adapter(itemComparator: Comparator, private val fragmentName: String) : ListAdapter<CountriesJSONData, ViewHolder>(itemComparator) {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return ViewHolder(
             ItemBinding.inflate(
@@ -16,6 +16,7 @@ class Adapter(itemComparator: Comparator, fragmentName: String) : ListAdapter<Co
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-
+        val item = getItem(position)
+        holder.bind(item, fragmentName)
     }
 }
