@@ -15,9 +15,10 @@
 
     <TextView
         android:id="@+id/countryElement"
-        android:layout_width="200sp"
+        android:layout_width="180sp"
         android:layout_height="wrap_content"
         android:textSize="30sp"
+        android:textAlignment="viewEnd"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/countryName"
         app:layout_constraintTop_toTopOf="parent" />
