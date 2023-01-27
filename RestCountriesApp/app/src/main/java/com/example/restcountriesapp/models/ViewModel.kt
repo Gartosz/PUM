@@ -11,7 +11,7 @@ import kotlinx.coroutines.launch
 import retrofit2.Response
 
 class ViewModel : ViewModel() {
-    private lateinit var _countries: MutableLiveData<Resource<CountriesResponse>>
+    private val _countries: MutableLiveData<Resource<CountriesResponse>> = MutableLiveData()
 
     val countries: LiveData<Resource<CountriesResponse>>
         get() = _countries
@@ -27,9 +27,6 @@ class ViewModel : ViewModel() {
         if (response.isSuccessful)
             response.body()?.let { return Resource.Success(it) }
         return Resource.Error(response.message())
-    }
-    fun getFlags(): Any{
-        return 0
     }
 
     suspend fun getFromApi() = RetrofitInstance.api.getCountries()
