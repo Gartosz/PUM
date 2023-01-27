@@ -5,9 +5,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import com.example.restcountriesapp.R
+import com.example.restcountriesapp.databinding.CountriesCapitalsBinding
+import com.example.restcountriesapp.models.ViewModel
 
 class CapitalsFragment : Fragment() {
+    private lateinit var binding: CountriesCapitalsBinding
+
+    private val fragmentViewModel: ViewModel by viewModels()
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
