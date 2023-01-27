@@ -14,8 +14,8 @@ interface CountriesApi {
 
 object Retrofit
 {
-    val retrofit = Retrofit.Builder()
-        .baseUrl("https://jsonplaceholder.typicode.com/")
+    private val retrofit = Retrofit.Builder()
+        .baseUrl(data.api_link)
         .addConverterFactory(GsonConverterFactory.create())
         .build()
 
