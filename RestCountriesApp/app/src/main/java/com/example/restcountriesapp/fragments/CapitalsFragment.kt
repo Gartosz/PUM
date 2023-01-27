@@ -9,7 +9,6 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.restcountriesapp.R
 import com.example.restcountriesapp.adapters.Adapter
 import com.example.restcountriesapp.adapters.CountriesComparator
 import com.example.restcountriesapp.data.data
@@ -24,8 +23,9 @@ class CapitalsFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        return inflater.inflate(R.layout.countries_capitals, container, false)
+    ): View {
+        binding = CountriesCapitalsBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
