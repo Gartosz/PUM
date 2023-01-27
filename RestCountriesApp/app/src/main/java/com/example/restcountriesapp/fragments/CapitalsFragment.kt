@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.restcountriesapp.R
 import com.example.restcountriesapp.adapters.Adapter
 import com.example.restcountriesapp.adapters.CountriesComparator
@@ -30,5 +31,15 @@ class CapitalsFragment : Fragment() {
         capitalsViewModel.getCountries()
 
         val countriesAdapter = Adapter(CountriesComparator(), data.capitals_fragment)
+
+        setupRecyclerView(countriesAdapter)
+    }
+
+
+    private fun setupRecyclerView(countriesAdapter: Adapter) {
+        binding.capitalsRecyclerView.apply {
+            adapter = countriesAdapter
+            layoutManager = LinearLayoutManager(requireContext())
+        }
     }
 }
