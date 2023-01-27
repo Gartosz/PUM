@@ -19,4 +19,5 @@ class ViewModel : ViewModel() {
         return 0
     }
 
-    }
+    suspend fun getFromApi() = RetrofitInstance.api.getCountries()
+}
