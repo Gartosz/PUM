@@ -1,6 +1,6 @@
 package com.example.restcountriesapp.data
 
-import CountriesJSONData
+import CountriesResponse
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Response
@@ -10,7 +10,7 @@ import retrofit2.Retrofit
 
 interface CountriesApi {
     @GET(data.endpoint)
-    suspend fun getCountries(): Response<ArrayList<CountriesJSONData>>
+    suspend fun getCountries(): Response<CountriesResponse>
 }
 
 
