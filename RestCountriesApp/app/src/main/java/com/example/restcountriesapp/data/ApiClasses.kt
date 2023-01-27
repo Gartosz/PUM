@@ -1,12 +1,4 @@
-package com.example.restcountriesapp.data
-
-data class CountryCapital(
-    val altSpellings: List<String>,
-    val capital: List<String>,
-    val name: Name
-)
-
-data class CountryFlag(
+data class CountriesJSONData(
     val altSpellings: List<String>,
     val capital: List<String>,
     val flag: String,
