@@ -2,13 +2,15 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/cocktailsFragment"
-        android:title="@string/cocktails"/>
-    <!--        android:icon="@drawable/icon??"-->
-    <item
         android:id="@+id/ingredientsFragment"
-        android:title="@string/ingredients"/>
+        android:title="@string/ingredients"
+        android:icon="@drawable/ingredients_icon"/>
+    <item
+        android:id="@+id/cocktailsFragment"
+        android:title="@string/cocktails"
+        android:icon="@drawable/cocktails_icon"/>
     <item
         android:id="@+id/favouritesFragment"
-        android:title="@string/favourites"/>
+        android:title="@string/favourites"
+        android:icon="@drawable/favourites_icon"/>
 </menu>
