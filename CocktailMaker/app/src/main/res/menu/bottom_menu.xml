@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/cocktailsFragment"
+        android:title="@string/cocktails"/>
+    <!--        android:icon="@drawable/icon??"-->
+    <item
+        android:id="@+id/ingredientsFragment"
+        android:title="@string/ingredients"/>
+    <item
+        android:id="@+id/favouritesFragment"
+        android:title="@string/favourites"/>
+</menu>

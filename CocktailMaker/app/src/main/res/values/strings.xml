@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">CocktailMaker</string>
+    <string name="cocktails">Cocktails</string>
+    <string name="ingredients">Ingredients</string>
+    <string name="favourites">Favourites</string>
 </resources>
