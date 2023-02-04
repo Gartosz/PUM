@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav"
+    app:startDestination="@id/cocktailsFragment">
+
+    <fragment
+        android:id="@+id/cocktailsFragment"
+        android:name="com.example.cocktailmaker.fragments.CocktailsFragment"
+        android:label="cocktails"
+        tools:layout="@layout/cocktails" />
+    <fragment
+        android:id="@+id/ingredientsFragment"
+        android:name="com.example.cocktailmaker.fragments.IngredientsFragment"
+        android:label="ingredients"
+        tools:layout="@layout/ingredients" />
+    <fragment
+        android:id="@+id/favouritesFragment"
+        android:name="com.example.cocktailmaker.fragments.FavouritesFragment"
+        android:label="favourites"
+        tools:layout="@layout/favourites" />
+</navigation>
