@@ -5,11 +5,11 @@ plugins {
 }
 
 android {
-    namespace 'com.example.restcountriesapp'
+    namespace 'com.example.cocktailmaker'
     compileSdk 33
 
     defaultConfig {
-        applicationId "com.example.restcountriesapp"
+        applicationId "com.example.cocktailmaker"
         minSdk 33
         targetSdk 33
         versionCode 1
