@@ -7,7 +7,7 @@ import com.example.cocktailmaker.models.Ingredient
 class IngredientRepository (private val ingredientDao : IngredientDAO) {
     val readAllData: LiveData<List<Ingredient>> = ingredientDao.readAllData()
 
-    fun search(query: String): LiveData<List<Ingredient>>
+    fun search(query: String): LiveData<Ingredient>
     {
         return ingredientDao.search(query)
     }
