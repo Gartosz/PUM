@@ -8,6 +8,7 @@ data class Cocktail (
     @PrimaryKey(autoGenerate = true)
     val id: Int,
     val name: String,
-    val ingredients: List<String>,
+    val ingredients: String,
+    val quantities: String,
     val favourite: Boolean
 )
