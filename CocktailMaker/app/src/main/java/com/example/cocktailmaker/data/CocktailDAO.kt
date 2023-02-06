@@ -1,11 +1,13 @@
 package com.example.cocktailmaker.data
 
 import androidx.lifecycle.LiveData
+import androidx.room.Dao
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import androidx.room.Update
 import com.example.cocktailmaker.models.Cocktail
 
+@Dao
 interface CocktailDAO {
     @Query("SELECT * FROM cocktails_table WHERE id LIKE :favourite")
     fun search(favourite: Boolean): LiveData<List<Cocktail>>
