@@ -44,6 +44,7 @@ class IngredientsFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+            setRecyclerView()
             addIngredient()
         }
 
@@ -52,7 +53,6 @@ private fun addIngredient() {
     addListButton.setOnClickListener()
     {
         addAlert()
-        setRecyclerView()
     }
 }
 
