@@ -20,7 +20,8 @@ class CocktailViewHolder (private val binding: CocktailItemBinding) : RecyclerVi
         val ingredientsAdapter : ArrayAdapter<String> = ArrayAdapter(binding.root.context, simple_list_item_1, ingredients)
         binding.ingredients.adapter = ingredientsAdapter
 
-        val quantities: List<String> = gson.fromJson<List<String>?>(item.ingredients, type).toList()
+        val quantities: List<String> = gson.fromJson<List<String>?>(item.quantities, type).filter { it != null }.toList()
+        println(quantities)
         val quantitiesAdapter : ArrayAdapter<String> = ArrayAdapter(binding.root.context, simple_list_item_1, quantities)
         binding.quantities.adapter = quantitiesAdapter
         binding.root.setOnClickListener()

@@ -24,7 +24,7 @@
 
         <com.example.cocktailmaker.data.MyListView
             android:id="@+id/ingredients"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -32,10 +32,10 @@
 
         <com.example.cocktailmaker.data.MyListView
             android:id="@+id/quantities"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toEndOf="@id/ingredients"
+            app:layout_constraintEnd_toEndOf="parent"
             android:layout_weight="1"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
