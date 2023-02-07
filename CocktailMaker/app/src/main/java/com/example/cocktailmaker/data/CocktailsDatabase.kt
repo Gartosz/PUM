@@ -21,7 +21,8 @@ abstract class CocktailsDatabase : RoomDatabase() {
                     context.applicationContext,
                     CocktailsDatabase::class.java,
                     "cocktails_database"
-                ).createFromAsset("database/cocktails.db").build().also { INSTANCE = it }
+                ).createFromAsset("database/cocktails.db").allowMainThreadQueries()
+                    .build().also { INSTANCE = it }
                 instance
             }
         }
