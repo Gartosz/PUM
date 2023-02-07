@@ -4,9 +4,8 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
 import com.example.cocktailmaker.databinding.IngredientItemBinding
-import com.example.cocktailmaker.models.Ingredient
 
-class IngredientAdapter (ingredientComparator: IngredientComparator) : ListAdapter<Ingredient, IngredientViewHolder>(ingredientComparator) {
+class IngredientAdapter (ingredientComparator: IngredientComparator) : ListAdapter<String, IngredientViewHolder>(ingredientComparator) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): IngredientViewHolder {
         return IngredientViewHolder(
@@ -16,7 +15,12 @@ class IngredientAdapter (ingredientComparator: IngredientComparator) : ListAdapt
     }
 
     override fun onBindViewHolder(holder: IngredientViewHolder, position: Int) {
-        TODO("Not yet implemented")
+        val item = getItem(position)
+        holder.bind(item)
+    }
+
+    public fun getItemAt(position: Int): String{
+        return getItem(position)
     }
 
 }

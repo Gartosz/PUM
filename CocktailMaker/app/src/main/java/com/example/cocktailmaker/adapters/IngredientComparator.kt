@@ -1,14 +1,13 @@
 package com.example.cocktailmaker.adapters
 
 import androidx.recyclerview.widget.DiffUtil
-import com.example.cocktailmaker.models.Ingredient
 
-class IngredientComparator : DiffUtil.ItemCallback<Ingredient>() {
-    override fun areItemsTheSame(oldItem: Ingredient, newItem: Ingredient): Boolean {
+class IngredientComparator : DiffUtil.ItemCallback<String>() {
+    override fun areItemsTheSame(oldItem: String, newItem: String): Boolean {
         return oldItem === newItem
     }
 
-    override fun areContentsTheSame(oldItem: Ingredient, newItem: Ingredient): Boolean {
-        return oldItem.name == newItem.name
+    override fun areContentsTheSame(oldItem: String, newItem: String): Boolean {
+        return oldItem == newItem
     }
 }
