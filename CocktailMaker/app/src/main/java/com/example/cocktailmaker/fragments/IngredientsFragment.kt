@@ -12,7 +12,9 @@ import android.widget.AutoCompleteTextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.cocktailmaker.adapters.IngredientAdapter
 import com.example.cocktailmaker.adapters.IngredientComparator
 import com.example.cocktailmaker.data.SharedData
@@ -57,10 +59,31 @@ private fun addIngredient() {
 private fun setRecyclerView()
 {
     val adapter = IngredientAdapter(IngredientComparator())
+    swipeToDelete(adapter)
     binding.ingredientsRecyclerView.adapter = adapter
     binding.ingredientsRecyclerView.layoutManager = LinearLayoutManager(requireContext())
 
     ingredientViewModel.selectedIngredients.observe(viewLifecycleOwner, adapter::submitList)
+}
+
+private fun swipeToDelete(adapter: IngredientAdapter) {
+    ItemTouchHelper(object : ItemTouchHelper.SimpleCallback(
+        0,
+        ItemTouchHelper.RIGHT or ItemTouchHelper.LEFT
+    ) {
+        override fun onMove(
+            recyclerView: RecyclerView,
+            viewHolder: RecyclerView.ViewHolder,
+            target: RecyclerView.ViewHolder
+        ): Boolean {
+            return false
+        }
+
+        override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
+            ingredientViewModel.deleteItem(adapter.getItemAt(viewHolder.adapterPosition))
+            binding.ingredientsRecyclerView.adapter?.notifyDataSetChanged()
+        }
+    }).attachToRecyclerView(binding.ingredientsRecyclerView)
 }
 
 private fun addAlert() {
@@ -92,7 +115,6 @@ private fun setupAlert(
             {
                 val selectedList = ingredientViewModel.selectedIngredients.value
                 selectedList?.add(selected)
-                ingredientViewModel.selectedIngredients.postValue(selectedList)
                 SharedData.selected_ingredients = selectedList!!.toList()
                 binding.ingredientsRecyclerView.adapter?.notifyItemInserted(selectedList.size - 1)
             }
