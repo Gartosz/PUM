@@ -12,6 +12,9 @@ import android.widget.AutoCompleteTextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.cocktailmaker.adapters.IngredientAdapter
+import com.example.cocktailmaker.adapters.IngredientComparator
 import com.example.cocktailmaker.data.SharedData
 import com.example.cocktailmaker.databinding.IngredientDialogBinding
 import com.example.cocktailmaker.databinding.IngredientsBinding
@@ -47,7 +50,17 @@ private fun addIngredient() {
     addListButton.setOnClickListener()
     {
         addAlert()
+        setRecyclerView()
     }
+}
+
+private fun setRecyclerView()
+{
+    val adapter = IngredientAdapter(IngredientComparator())
+    binding.ingredientsRecyclerView.adapter = adapter
+    binding.ingredientsRecyclerView.layoutManager = LinearLayoutManager(requireContext())
+
+    ingredientViewModel.selectedIngredients.observe(viewLifecycleOwner, adapter::submitList)
 }
 
 private fun addAlert() {
@@ -81,6 +94,7 @@ private fun setupAlert(
                 selectedList?.add(selected)
                 ingredientViewModel.selectedIngredients.postValue(selectedList)
                 SharedData.selected_ingredients = selectedList!!.toList()
+                binding.ingredientsRecyclerView.adapter?.notifyItemInserted(selectedList.size - 1)
             }
             else
                 Toast.makeText(context, "Nothing's been selected!", Toast.LENGTH_SHORT).show()
