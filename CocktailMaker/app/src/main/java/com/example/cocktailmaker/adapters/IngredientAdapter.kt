@@ -19,7 +19,7 @@ class IngredientAdapter (ingredientComparator: IngredientComparator) : ListAdapt
         holder.bind(item)
     }
 
-    public fun getItemAt(position: Int): String{
+    fun getItemAt(position: Int): String{
         return getItem(position)
     }
 
