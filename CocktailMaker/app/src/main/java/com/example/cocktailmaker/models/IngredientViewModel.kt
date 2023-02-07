@@ -9,7 +9,7 @@ import com.example.cocktailmaker.repositories.IngredientRepository
 class IngredientViewModel(application: Application) : AndroidViewModel(application) {
     val readAllData: List<Ingredient>
 
-    var selectedIngredients: MutableLiveData<MutableList<Ingredient>> = MutableLiveData(
+    var selectedIngredients: MutableLiveData<MutableList<String>> = MutableLiveData(
         mutableListOf())
 
     private val repository: IngredientRepository

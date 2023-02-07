@@ -51,7 +51,7 @@ private fun addIngredient() {
 
 private fun addAlert() {
     val alert_dialog = AlertDialog.Builder(context)
-    val selected = ingredientViewModel.selectedIngredients.value?.map{ it.name }
+    val selected = ingredientViewModel.selectedIngredients.value
     val available = ingredientViewModel.readAllData.map{ it.name }.toMutableList()
     available.removeAll(selected!!)
     val dialog_adapter: ArrayAdapter<String> = ArrayAdapter<String>(
