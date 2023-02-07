@@ -12,6 +12,7 @@ import android.widget.AutoCompleteTextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import com.example.cocktailmaker.data.SharedData
 import com.example.cocktailmaker.databinding.IngredientDialogBinding
 import com.example.cocktailmaker.databinding.IngredientsBinding
 import com.example.cocktailmaker.models.IngredientViewModel
@@ -73,7 +74,16 @@ private fun setupAlert(
         setTitle("Add ingredient")
         setView(dialogBinding.root)
         setPositiveButton("Add") { _: DialogInterface?, _: Int ->
-
+            val selected = textView.text.toString()
+            if(selected != "")
+            {
+                val selectedList = ingredientViewModel.selectedIngredients.value
+                selectedList?.add(selected)
+                ingredientViewModel.selectedIngredients.postValue(selectedList)
+                SharedData.selected_ingredients = selectedList!!.toList()
+            }
+            else
+                Toast.makeText(context, "Nothing's been selected!", Toast.LENGTH_SHORT).show()
         }
         setNegativeButton("Cancel") { dialog, _ ->
             dialog.cancel()
