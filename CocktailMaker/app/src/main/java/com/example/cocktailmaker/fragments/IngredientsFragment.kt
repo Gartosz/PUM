@@ -46,7 +46,9 @@ class IngredientsFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
             setRecyclerView()
             addIngredient()
-        }
+            Toast.makeText(context, "Add ingredient using the plus button and swipe to remove.",
+                           Toast.LENGTH_LONG).show()
+    }
 
 private fun addIngredient() {
     addListButton =  binding.addButton

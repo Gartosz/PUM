@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -32,6 +33,8 @@ class CocktailsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setRecyclerView()
+        Toast.makeText(context, "Hold to search in the web browser. Click on the hearth to " +
+                       "add to favourites.", Toast.LENGTH_LONG).show()
     }
 
     private fun setRecyclerView()
