@@ -4,16 +4,24 @@ import android.R.layout.simple_list_item_1
 import android.view.View
 import android.widget.ArrayAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.example.cocktailmaker.R
 import com.example.cocktailmaker.databinding.CocktailItemBinding
 import com.example.cocktailmaker.models.Cocktail
+import com.example.cocktailmaker.models.CocktailViewModel
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import java.lang.reflect.Type
 
-class CocktailViewHolder (private val binding: CocktailItemBinding) : RecyclerView.ViewHolder(binding.root) {
+class CocktailViewHolder (private val binding: CocktailItemBinding, private val cocktailViewModel: CocktailViewModel) : RecyclerView.ViewHolder(binding.root) {
 
     fun bind(item: Cocktail) {
         binding.cocktailName.text = item.name.replace("\"", "")
+        binding.favouriteButton.setBackgroundResource(if (item.favourite) R.drawable.favourite else R.drawable.not_favourite)
+        binding.favouriteButton.setOnClickListener {
+            val favourite = !item.favourite
+            val updateCocktail = Cocktail(item.id, item.name, item.ingredients, item.quantities, favourite)
+            cocktailViewModel.update(updateCocktail)
+        }
         val gson = Gson()
         val type: Type = object : TypeToken<List<String>>() {}.type
         val ingredients: List<String> = gson.fromJson<List<String>?>(item.ingredients, type).toList()

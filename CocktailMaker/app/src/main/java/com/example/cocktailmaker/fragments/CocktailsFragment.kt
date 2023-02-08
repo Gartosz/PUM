@@ -36,7 +36,7 @@ class CocktailsFragment : Fragment() {
 
     private fun setRecyclerView()
     {
-        val adapter = CocktailAdapter(CocktailComparator())
+        val adapter = CocktailAdapter(CocktailComparator(), cocktailViewModel)
         binding.cocktailsRecyclerView.adapter = adapter
         binding.cocktailsRecyclerView.layoutManager = LinearLayoutManager(requireContext())
         cocktailViewModel.readAllData.observe(viewLifecycleOwner) {
