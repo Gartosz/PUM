@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/capitalsFragment"
+        android:icon="@drawable/capital_icon"
+        android:title="@string/capitals" />
+    <item
+        android:id="@+id/flagsFragment"
+        android:icon="@drawable/flag_icon"
+        android:title="@string/flags" />
+</menu>
