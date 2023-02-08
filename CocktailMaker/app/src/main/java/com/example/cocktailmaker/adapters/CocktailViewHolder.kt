@@ -1,6 +1,8 @@
 package com.example.cocktailmaker.adapters
 
 import android.R.layout.simple_list_item_1
+import android.app.SearchManager
+import android.content.Intent
 import android.view.View
 import android.widget.ArrayAdapter
 import androidx.recyclerview.widget.RecyclerView
@@ -18,7 +20,13 @@ class CocktailViewHolder (private val binding: CocktailItemBinding, private val 
         binding.cocktailName.text = item.name.replace("\"", "")
         handleFavourite(item)
         setLists(item)
-
+        binding.root.setOnLongClickListener {
+            val intent = Intent(Intent.ACTION_WEB_SEARCH).apply {
+                putExtra(SearchManager.QUERY, binding.cocktailName.text.toString() + " cocktail")
+            }
+            binding.root.context.startActivity(intent)
+            true
+        }
     }
 
     private fun setLists(item: Cocktail) {
