@@ -16,27 +16,55 @@ class CocktailViewHolder (private val binding: CocktailItemBinding, private val 
 
     fun bind(item: Cocktail) {
         binding.cocktailName.text = item.name.replace("\"", "")
-        binding.favouriteButton.setBackgroundResource(if (item.favourite) R.drawable.favourite else R.drawable.not_favourite)
-        binding.favouriteButton.setOnClickListener {
-            val favourite = !item.favourite
-            val updateCocktail = Cocktail(item.id, item.name, item.ingredients, item.quantities, favourite)
-            cocktailViewModel.update(updateCocktail)
-        }
+        handleFavourite(item)
+        setLists(item)
+
+    }
+
+    private fun setLists(item: Cocktail) {
         val gson = Gson()
         val type: Type = object : TypeToken<List<String>>() {}.type
-        val ingredients: List<String> = gson.fromJson<List<String>?>(item.ingredients, type).toList()
-        val ingredientsAdapter : ArrayAdapter<String> = ArrayAdapter(binding.root.context, simple_list_item_1, ingredients)
-        binding.ingredients.adapter = ingredientsAdapter
-
-        val quantities: List<String> = gson.fromJson<List<String>?>(item.quantities, type).filter { it != null }.toList()
-        println(quantities)
-        val quantitiesAdapter : ArrayAdapter<String> = ArrayAdapter(binding.root.context, simple_list_item_1, quantities)
-        binding.quantities.adapter = quantitiesAdapter
+        setIngredients(gson, item, type)
+        setQuantities(gson, item, type)
         binding.root.setOnClickListener()
         {
             val isExpanded = binding.expandableLayout.visibility == View.VISIBLE
             binding.expandableLayout.visibility = if (isExpanded) View.GONE else View.VISIBLE
         }
+    }
 
+    private fun setQuantities(
+        gson: Gson,
+        item: Cocktail,
+        type: Type
+    ) {
+        val quantities: List<String> =
+            gson.fromJson<List<String>?>(item.quantities, type).filter { it != null }.toList()
+        println(quantities)
+        val quantitiesAdapter: ArrayAdapter<String> =
+            ArrayAdapter(binding.root.context, simple_list_item_1, quantities)
+        binding.quantities.adapter = quantitiesAdapter
+    }
+
+    private fun setIngredients(
+        gson: Gson,
+        item: Cocktail,
+        type: Type
+    ) {
+        val ingredients: List<String> =
+            gson.fromJson<List<String>?>(item.ingredients, type).toList()
+        val ingredientsAdapter: ArrayAdapter<String> =
+            ArrayAdapter(binding.root.context, simple_list_item_1, ingredients)
+        binding.ingredients.adapter = ingredientsAdapter
+    }
+
+    private fun handleFavourite(item: Cocktail) {
+        binding.favouriteButton.setBackgroundResource(if (item.favourite) R.drawable.favourite else R.drawable.not_favourite)
+        binding.favouriteButton.setOnClickListener {
+            val favourite = !item.favourite
+            val updateCocktail =
+                Cocktail(item.id, item.name, item.ingredients, item.quantities, favourite)
+            cocktailViewModel.update(updateCocktail)
+        }
     }
 }
