@@ -17,7 +17,7 @@ import java.lang.reflect.Type
 class CocktailViewHolder (private val binding: CocktailItemBinding, private val cocktailViewModel: CocktailViewModel) : RecyclerView.ViewHolder(binding.root) {
 
     fun bind(item: Cocktail) {
-        binding.cocktailName.text = item.name.replace("\"", "")
+        binding.cocktailName.text = item.name
         handleFavourite(item)
         setLists(item)
         binding.root.setOnLongClickListener {
