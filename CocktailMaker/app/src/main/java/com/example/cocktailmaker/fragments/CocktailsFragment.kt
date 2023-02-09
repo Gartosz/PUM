@@ -33,8 +33,8 @@ class CocktailsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setRecyclerView()
-        Toast.makeText(context, "Hold to search in the web browser. Click on the hearth to " +
-                       "add to favourites.", Toast.LENGTH_LONG).show()
+        Toast.makeText(context, "Click on cocktail to show ingredients. Hold to search " +
+                "in the web browser. Click on the hearth to add to favourites. ", Toast.LENGTH_LONG).show()
     }
 
     private fun setRecyclerView()
