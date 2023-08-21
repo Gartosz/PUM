@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:visibility="visible">
+
+    <TextView
+        android:id="@+id/singleListTitle"
+        android:layout_width="200sp"
+        android:layout_height="wrap_content"
+        android:textSize="30sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/statusCheckmark"
+        android:layout_width="40sp"
+        android:layout_height="40sp"
+        android:layout_marginStart="152dp"
+        android:contentDescription="@string/single_crime_image"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/singleListTitle"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/checkmark" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
